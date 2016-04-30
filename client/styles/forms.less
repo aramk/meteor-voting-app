@@ -1,0 +1,49 @@
+@input-padding: 0.5rem !important;
+.ui.form {
+  margin: 0 auto;
+  form {
+    text-align: left;
+  }
+  &.crud {
+    max-width: 800px;
+  }
+  .field {
+    .ui.input {
+      input {
+        padding: @input-padding;
+      }
+      .ui.label {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: normal;
+        line-height: 1.6rem;
+      }
+    }
+    &:disabled, &.disabled {
+      opacity: 1;
+    }
+    &.no-label {
+      margin-top: 1.5rem;
+      > label {
+        display: none;
+      }
+    }
+  }
+  .ui.buttons {
+    margin-right: 0;
+  }
+  .crud.buttons {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    display: inline-block;
+    width: 100%;
+    .button {
+      margin: 0 0.5rem;
+      float: right;
+      &.cancel {
+        float: left;
+      }
+    }
+  }
+}

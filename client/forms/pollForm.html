@@ -1,0 +1,12 @@
+<template name="pollForm">
+  <div class="ui form poll-form">
+    <h2>{{formTitle}}</h2>
+    {{#autoForm collection=collection id=formName doc=doc type=formType}}
+      {{> afQuickField name="name"}}
+    {{/autoForm}}
+    <div class="crud buttons">
+      <button type="button" class="ui red cancel button">Cancel</button>
+      <button type="submit" class="ui button submit green">Submit</button>
+    </div>
+  </div>
+</template>

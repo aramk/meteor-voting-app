@@ -1,0 +1,143 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  .full.size;
+}
+
+html {
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.invisible {
+  .hidden;
+  display: none;
+}
+
+body {
+  min-width: 0;
+}
+
+.body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  .flex;
+  .full.size;
+  > .container {
+    padding: 0;
+    padding-top: 10px;
+    text-align: center;
+    overflow: auto;
+    .full.size;
+    .flex;
+    .flex-grow;
+    > .content {
+      margin: 10px;
+    }
+  }
+  footer {
+    position: relative;
+  }
+}
+
+.page-width {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.full {
+  &.width {
+    width: 100%;
+  }
+  &.height {
+    height: 100%;
+  }
+  &.size {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.flex(@direction: column) {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.flex-grow(@size: 1) {
+  flex-grow: @size;
+  -webkit-flex-grow: @size;
+}
+
+.flex-shrink(@size: 0) {
+  flex-shrink: @size;
+  -webkit-flex-shrink: @size;
+}
+
+.flex.container {
+  .flex(row);
+  .body {
+    .flex-grow;
+    padding: 10px;
+  }
+}
+
+.background-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.background-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.inverted-text {
+  color: white;
+  text-shadow: 0px 1px 8px black;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// SEMANTIC-UI OVERRIDES
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.ui.menu {
+  .item {
+    cursor: pointer;
+    .item {
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .ui.selection.dropdown {
+      min-width: inherit;
+      border: none;
+    }
+  }
+}
+
+.toolbar.ui.menu:not(.vertical) .item > .button {
+  padding: 0.78571em 0.95em;
+}
+
+.ui.button {
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: rgba(172, 218, 254, 0.5);
+}
+
+.ui.selection.dropdown .menu {
+  max-height: 300px;
+}
+
+.ui.icon.buttons .button {
+  padding: 0.6rem;
+  font-size: 1.4rem;
+}

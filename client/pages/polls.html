@@ -1,0 +1,25 @@
+<template name="polls">
+  <h1>Polls</h1>
+  <div class="ui menu fitted borderless">
+    <a class="item">
+      <div class="ui button create">
+        New
+      </div>
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="items">
+    {{#each polls}}
+      <div class="item">
+        {{name}}
+      </div>
+    {{/each}}
+  </div>
+</template>
