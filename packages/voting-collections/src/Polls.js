@@ -2,7 +2,12 @@ Polls = new Meteor.Collection('polls');
 
 let schema = new SimpleSchema({
   name: {
-    type: String
+    type: String,
+    max: 100
+  },
+  description: {
+    type: String,
+    max: 500
   },
   dateCreated: {
     type: Date

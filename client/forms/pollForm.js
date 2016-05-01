@@ -1,7 +1,14 @@
-let Form = Forms.defineModelForm({
+const Form = Forms.defineModelForm({
   name: 'pollForm',
   collection: Polls,
   onSuccess: function() {
-    Router.go('polls');
+    routeBack();
+  },
+  onCancel: function() {
+    routeBack();
   }
 });
+
+function routeBack() {
+  Router.go('polls');
+}

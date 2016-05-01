@@ -1,0 +1,46 @@
+@import '../styles/layout';
+
+.ui.cards.polls {
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+
+  .card-wrapper {
+    display: inline-block;
+    margin: 1rem 1rem 2rem 1rem;
+  }
+  .card {
+    .flex(column);
+    width: 400px;
+    height: 180px;
+    .content:not(.extra) {
+      .flex(column);
+      .flex-grow;
+      .header {
+        .flex-shrink;
+      }
+      .description {
+        .flex-grow;
+        padding-bottom: 1rem;
+        overflow-y: auto;
+      }
+      padding-bottom: 0;
+    }
+    .extra.content {
+      @content-height: 3rem;
+      .flex-shrink;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: @content-height;
+      .meta {
+        span {
+          margin-right: 1rem;
+        }
+      }
+      .right.floated.ui.icon.menu {
+        height: @content-height;
+        // margin-right: -1rem;
+      }
+    }
+  }
+}

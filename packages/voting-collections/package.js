@@ -17,10 +17,10 @@ Package.onUse(function(api) {
   ]);
   api.export([
     'Polls',
-    // 'Votes'
+    'Votes'
   ], ['client', 'server']);
   api.addFiles([
     'src/Polls.js',
-    // 'src/Votes.js'
+    'src/Votes.js'
   ], ['client', 'server']);
 });

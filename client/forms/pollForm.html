@@ -3,6 +3,7 @@
     <h2>{{formTitle}}</h2>
     {{#autoForm collection=collection id=formName doc=doc type=formType}}
       {{> afQuickField name="name"}}
+      {{> afQuickField name="description" rows=3}}
     {{/autoForm}}
     <div class="crud buttons">
       <button type="button" class="ui red cancel button">Cancel</button>
