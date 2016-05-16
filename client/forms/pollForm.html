@@ -1,9 +1,10 @@
 <template name="pollForm">
   <div class="ui form poll-form">
     <h2>{{formTitle}}</h2>
-    {{#autoForm collection=collection id=formName doc=doc type=formType}}
+    {{#autoForm collection=collection id=formName doc=doc type=formType resetOnSuccess=resetOnSuccess}}
       {{> afQuickField name="name"}}
       {{> afQuickField name="description" rows=3}}
+      {{> afQuickField name="choices"}}
     {{/autoForm}}
     <div class="crud buttons">
       <button type="button" class="ui red cancel button">Cancel</button>

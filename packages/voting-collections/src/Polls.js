@@ -1,5 +1,11 @@
 Polls = new Meteor.Collection('polls');
 
+const ChoiceSchema = new SimpleSchema({
+  name: {
+    type: String
+  }
+});
+
 let schema = new SimpleSchema({
   name: {
     type: String,
@@ -11,6 +17,10 @@ let schema = new SimpleSchema({
   },
   dateCreated: {
     type: Date
+  },
+  choices: {
+    type: [ChoiceSchema],
+    minCount: 1
   }
 });
 
@@ -24,9 +34,3 @@ Polls.allow({
 Polls.before.insert(function(userId, doc) {
   doc.dateCreated = new Date();
 });
-
-if (Meteor.isServer) {
-  Meteor.publish('polls', function() {
-    return Polls.find();
-  });
-}

@@ -1,0 +1,3 @@
+[submodule "packages/meteor-utility"]
+	path = packages/meteor-utility
+	url = https://github.com/urbanetic/meteor-utility

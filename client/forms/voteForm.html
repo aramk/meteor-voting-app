@@ -1,0 +1,11 @@
+<template name="voteForm">
+  <div class="ui form vote-form">
+    {{#autoForm collection=collection id=formName doc=doc type=formType resetOnSuccess=resetOnSuccess}}
+      {{> afQuickField name="author"}}
+      {{> afQuickField name="value" options=choices}}
+    {{/autoForm}}
+    <div class="crud buttons">
+      <button type="submit" class="ui button submit green">Add</button>
+    </div>
+  </div>
+</template>

@@ -39,8 +39,27 @@
       }
       .right.floated.ui.icon.menu {
         height: @content-height;
-        // margin-right: -1rem;
       }
+    }
+  }
+}
+
+.poll .container {
+  .content {
+    > .ui.table, > .ui.form {
+      margin: 3rem auto;
+      max-width: 500px;
+    }
+  }
+  .ui.menu.toolbar {
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+  }
+  .choices.table {
+    tr.winner {
+      background: #BBF1FF;
+      font-weight: bold;
     }
   }
 }

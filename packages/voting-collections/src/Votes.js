@@ -4,7 +4,10 @@ let schema = new SimpleSchema({
   pollId: {
     type: String
   },
-  owner: {
+  author: {
+    type: String
+  },
+  value: {
     type: String
   }
 });
@@ -16,12 +19,14 @@ Votes.allow({
   remove: () => true
 });
 
-Polls.after.remove(function(userId, doc) {
-  Votes.remove({pollId: doc._id});
-});
-
 if (Meteor.isServer) {
-  Meteor.publish('votes', function() {
-    return Votes.find();
+  // Remove all votes associated with a poll.
+  Polls.after.remove(function(userId, doc) {
+    Votes.remove({pollId: doc._id});
+  });
+
+  // Remove previous votes by the same use for the same poll.
+  Votes.before.insert(function(userId, doc) {
+    Votes.remove({pollId: doc.pollId, author: doc.author});
   });
 }

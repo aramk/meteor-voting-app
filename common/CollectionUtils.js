@@ -1,7 +1,7 @@
 this.CollectionUtils = {
 
   getAll() {
-    return [Polls];
+    return [Polls, Votes];
   }
 
 }

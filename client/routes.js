@@ -38,8 +38,13 @@ Meteor.startup(function() {
   });
 });
 
-// Router.route('polls', {
-//   path: '/polls',
-//   template: 'polls',
-//   // controller: 'AdminController',
-// });
+Router.route('poll', {
+  path: '/poll/:_id',
+  template: 'poll',
+  controller: BaseController,
+  data: function() {
+    return {
+      doc: Polls.findOne({_id: this.params._id})
+    };
+  }
+});

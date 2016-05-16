@@ -1,0 +1,52 @@
+<template name="poll">
+  <div class="ui menu basic toolbar">
+    <a class="item back">
+      <i class="chevron left icon"></i>
+    </a>
+    <a class="item edit">
+      <i class="pencil icon"></i>
+    </a>
+  </div>
+  <h1>{{doc.name}}</h1>
+  <div class="description">{{doc.description}}</div>
+  <h4 class="ui horizontal divider header">Results</h4>
+  <table class="ui table choices">
+    <thead>
+      <tr>
+        <th>Choice</th>
+        <th>Freq.</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each choiceStats}}
+        <tr class="{{#if isWinner}}winner{{/if}}">
+          <td>{{choice}}</td>
+          <td>{{freq}}</td>
+          <td>{{percentage percent}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <h4 class="ui horizontal divider header">Vote</h4>
+  {{> voteForm pollId=doc._id}}
+  {{#if hasVotes}}
+    <h4 class="ui horizontal divider header">History</h4>
+    <table class="ui table voters">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Choice</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each votes}}
+          <tr>
+            <td>{{author}}</td>
+            <td>{{value}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+</template>
