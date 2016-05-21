@@ -16,7 +16,8 @@ let schema = new SimpleSchema({
     max: 500
   },
   dateCreated: {
-    type: Date
+    type: Date,
+    optional: true
   },
   choices: {
     type: [ChoiceSchema],

@@ -1,7 +1,7 @@
 const TemplateClass = Template.polls;
 
 TemplateClass.helpers({
-  polls: () => Polls.find(),
+  polls: () => Polls.find({}, {sort: {'dateCreated': -1}}),
   votes: function() {
     return Votes.find({_id: this._id}).count();
   },
