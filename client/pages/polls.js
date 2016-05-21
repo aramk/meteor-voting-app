@@ -1,7 +1,27 @@
 const TemplateClass = Template.polls;
 
+TemplateClass.onCreated(function() {
+  this.query = new ReactiveVar();
+});
+
+TemplateClass.onRendered(function() {
+  Templates.bindVarToElement(this.$('input[name="search"]'), this.query);
+});
+
 TemplateClass.helpers({
-  polls: () => Polls.find({}, {sort: {'dateCreated': -1}}),
+  polls: () => {
+    const template = Template.instance();
+    const query = template.query.get();
+    const selector = {};
+    if (query) {
+      const regex = new RegExp(query, 'i');
+      selector.$or = [
+        {name: regex},
+        {description: regex}
+      ];
+    }
+    return Polls.find(selector, {sort: {'dateCreated': -1}});
+  },
   votes: function() {
     return Votes.find({pollId: this._id}).count();
   },
