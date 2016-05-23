@@ -44,9 +44,13 @@ TemplateClass.events({
 });
 
 function getVotes() {
-  return Votes.find({pollId: this.doc._id})
+  return Votes.find({pollId: this.doc._id}, {sort: {dateCreated: -1}})
 }
 
 Blaze.registerHelper('percentage', function(value) {
   return (value * 100).toFixed(2) + '%';
+});
+
+Blaze.registerHelper('date', function(value) {
+  return value ? Dates.toLong(value) : '';
 });

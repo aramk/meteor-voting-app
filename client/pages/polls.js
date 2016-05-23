@@ -3,7 +3,7 @@ const TemplateClass = Template.polls;
 TemplateClass.helpers({
   polls: () => Polls.find({}, {sort: {'dateCreated': -1}}),
   votes: function() {
-    return Votes.find({_id: this._id}).count();
+    return Votes.find({pollId: this._id}).count();
   },
   sinceCreated: function() {
     return moment(this.dateCreated).fromNow();

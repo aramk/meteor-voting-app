@@ -9,6 +9,10 @@ let schema = new SimpleSchema({
   },
   value: {
     type: String
+  },
+  dateCreated: {
+    type: Date,
+    optional: true
   }
 });
 
@@ -28,5 +32,6 @@ if (Meteor.isServer) {
   // Remove previous votes by the same use for the same poll.
   Votes.before.insert(function(userId, doc) {
     Votes.remove({pollId: doc.pollId, author: doc.author});
+    doc.dateCreated = new Date();
   });
 }
